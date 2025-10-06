@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PAY — Invoice INV-RDSR55XG</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #f9fafb;
+      color: #222;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 420px;
+      background: #fff;
+      margin: 50px auto;
+      border-radius: 16px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+      padding: 24px;
+      text-align: center;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .header img {
+      width: 60px;
+    }
+    .timer {
+      color: #10b981;
+      font-weight: 600;
+      background: #ecfdf5;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 14px;
+    }
+    .invoice {
+      margin-top: 16px;
+      font-size: 18px;
+      font-weight: 600;
+    }
+    .powered {
+      font-size: 12px;
+      color: #555;
+      margin-top: 2px;
+    }
+    .amount {
+      font-size: 22px;
+      font-weight: bold;
+      margin: 20px 0;
+    }
+    .address {
+      color: #4f46e5;
+      font-size: 12px;
+      word-break: break-all;
+    }
+    .status {
+      margin: 20px 0;
+      font-weight: 500;
+      color: #6b7280;
+    }
+    .qr {
+      margin: 16px auto;
+      width: 160px;
+      height: 160px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background: url('https://api.qrserver.com/v1/create-qr-code/?data=0xa2b07Ed95F3CfDEd76F2E70c58AF897C2dC94941&size=160x160') center/contain no-repeat;
+    }
+    .network-info {
+      margin-top: 12px;
+      font-size: 13px;
+      color: #444;
+    }
+    .button {
+      margin-top: 24px;
+      background: #e0e7ff;
+      color: #1e3a8a;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 30px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .button:hover {
+      background: #c7d2fe;
+    }
+    .fee {
+      margin-top: 18px;
+      font-size: 12px;
+      color: #555;
+    }
+    footer {
+      margin-top: 30px;
+      font-size: 12px;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div><strong>PAY</strong></div>
+      <div class="timer">⏱️ 00:24:55</div>
+    </div>
+
+    <div class="invoice">INV-RDSR55XG</div>
+    <div class="powered">POWERED BY ETHEREUM</div>
+
+    <div class="amount">Amount to pay: 0.0601 ETH</div>
+
+    <div class="address">
+      0xa2b07Ed95F3CfDEd76F2E70c58AF897C2dC94941
+    </div>
+
+    <div class="status">We are waiting for payment</div>
+
+    <div class="qr"></div>
+
+    <div class="network-info">
+      Selected currency: <b>ETH</b> &nbsp;|&nbsp; Network: <b>ERC20</b> <br>
+      Estimated confirmation time: 1–3 min
+    </div>
+
+    <button class="button">ALREADY PAID</button>
+
+    <div class="fee">
+      Fee Description: Audit fees and labor costs total 0.0601 ETH.
+    </div>
+
+    <footer>Etherscan © 2025 (C1)</footer>
+  </div>
+</body>
+</html>
