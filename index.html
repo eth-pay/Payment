@@ -64,7 +64,7 @@
     border:2px solid red; /* 红色提示框 */
   }
 
-  /* 倒计时进度条 */
+  /* 静态进度条 */
   .progress-container{
     width:100%;
     height:10px;
@@ -78,7 +78,6 @@
     height:100%;
     width:100%;
     background:linear-gradient(90deg, #10b981, #facc15, #ef4444);
-    transition:width 1s linear;
   }
 
   .invoice{
@@ -226,43 +225,6 @@
   </div>
 
 <script>
-let totalSeconds = 68 * 60 + 36; // 起始时间 68:36
-const timerEl = document.getElementById("timer");
-const progressBar = document.getElementById("progressBar");
-const totalTime = totalSeconds;
-
-function updateTimer(){
-  const minutes = Math.floor(totalSeconds / 60);
-  const seconds = totalSeconds % 60;
-  timerEl.textContent = `⏱️ ${minutes}:${seconds.toString().padStart(2, "0")}`;
-  
-  const percent = (totalSeconds / totalTime) * 100;
-  progressBar.style.width = percent + "%";
-
-  // 颜色变化
-  if (percent < 25){
-    progressBar.style.background = "#ef4444"; // red
-  } else if (percent < 50){
-    progressBar.style.background = "#f59e0b"; // orange
-  } else {
-    progressBar.style.background = "#10b981"; // green
-  }
-
-  if(totalSeconds > 0){
-    totalSeconds--;
-    setTimeout(updateTimer, 1000);
-  } else {
-    timerEl.textContent = "⏰ Time expired";
-    timerEl.style.background = "#fee2e2";
-    timerEl.style.color = "#dc2626";
-    timerEl.style.borderColor = "#dc2626";
-    progressBar.style.width = "0%";
-    progressBar.style.background = "#ef4444";
-  }
-}
-
-updateTimer();
-
 function markPaid(e){
   e.preventDefault();
   const status=document.getElementById("status");
